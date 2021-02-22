@@ -70,9 +70,9 @@ class BasicLoginGate {
     imitateLoginClick() { 
         window.deep.event({'event.type':'regwall-click'});
         if (this.dismissible) {
-            dataLayer.push({'event':'regwall-experiment-soft-click-join'});
+            window.dataLayer.push({'event':'regwall-experiment-soft-click-join'});
         } else {
-            dataLayer.push({'event':'regwall-experiment-hard-click-join'});
+            window.dataLayer.push({'event':'regwall-experiment-hard-click-join'});
         }
         
         document.getElementsByClassName('StyledComponents__PrimaryItem-sc-8b50a6-11 StyledComponents__TabletMobilePrimaryItem-sc-11uybho-8 dXXmMu')[0].click() 
