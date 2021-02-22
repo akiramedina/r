@@ -68,20 +68,22 @@ class BasicLoginGate {
         this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop
     }
     imitateLoginClick() { 
+        document.getElementsByClassName('StyledComponents__PrimaryItem-sc-8b50a6-11 StyledComponents__TabletMobilePrimaryItem-sc-11uybho-8 dXXmMu')[0].click() 
+    }
+    imitateSignupClick() { 
         window.deep.event({'event.type':'regwall-click'});
         if (this.dismissible) {
             window.dataLayer.push({'event':'regwall-experiment-soft-click-join'});
         } else {
             window.dataLayer.push({'event':'regwall-experiment-hard-click-join'});
         }
-        
-        document.getElementsByClassName('StyledComponents__PrimaryItem-sc-8b50a6-11 StyledComponents__TabletMobilePrimaryItem-sc-11uybho-8 dXXmMu')[0].click() 
+        document.getElementsByClassName('Button-thxeg-0 StyledComponents__JoinButton-sc-11uybho-5 hZSvol')[0].click()
     }
-    imitateSignupClick() { document.getElementsByClassName('Button-thxeg-0 StyledComponents__JoinButton-sc-11uybho-5 hZSvol')[0].click() }
     destroy() {
         document.body.style.overflowY = ""
         document.getElementById('main__form').remove()
         window.deep.event({'event.type':'regwall-close'});
+        window.dataLayer.push({'event':'regwall-experiment-soft-dismiss'});
     }
     render() {
         let rawHtml = this.htmlTemplate;
